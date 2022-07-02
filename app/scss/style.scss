@@ -440,14 +440,15 @@
 
 	background-image: url(../images/Mask.png);
 	position: relative;
-	&__inner{
+
+	&__inner {
 		height: 616px;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 	}
 
-	&:before{
+	&:before {
 		content: '';
 		width: 100%;
 		height: 100%;
@@ -465,9 +466,10 @@
 		text-align: left;
 		margin-bottom: 21px;
 		text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-		color:$primaryColor;
+		color: $primaryColor;
 		max-width: 540px;
-		&:after{
+
+		&:after {
 			content: '';
 			display: block;
 			width: 200px;
@@ -486,10 +488,221 @@
 		font-weight: 400;
 		line-height: 28px;
 		text-align: left;
-		color:$defaultColor;
+		color: $defaultColor;
 
 	}
 }
+
+.timeline-section {
+	padding: 80px 0 30px;
+	&__title {
+		@extend %title-font;
+		font-size: 36px;
+		line-height: 51px;
+		text-align: center;
+		color: $primaryColor;
+
+		margin-bottom: 39px;
+	}
+}
+
+.timeline-list {
+
+	&__box{
+		display: flex;
+		border-bottom: 1px solid $primaryColor;
+		position: relative;
+		&::before{
+			content: '';
+			position: absolute;
+			bottom: -5px;
+			left: 0;
+			width: 10px;
+			height: 10px;
+			border-radius: 50%;
+			background: $primaryColor;
+
+		}
+	}
+	&__item {
+		width: 250px;
+		position:relative;
+	}
+	&__item--measurements{
+		margin-left:317px;
+		&::before{
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			height: 20px;
+			width: 1px;
+			content:'';
+			background-color: $primaryColor;
+		}
+	}
+	&__item--designer,
+	&__item--measurements{
+		padding-bottom: 35px;
+	}
+	&__item--production{
+		padding-top:40px;
+		margin-left:306px;
+		&::before{
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 20px;
+			width: 1px;
+			content:'';
+			background-color: $primaryColor;
+		}
+	}
+	&__item-title {
+		@extend %title-font;
+		font-size: 16px;
+		line-height: 23px;
+		text-align: left;
+		color: $primaryColor;
+		padding-left: 53px;
+		margin-bottom: 23px;
+		position: relative;
+		&:before{
+			content: '';
+			position: absolute;
+			left: 0;
+			top: -5px;
+			background-size: contain;
+			background-repeat: no-repeat;
+		}
+	}
+
+	&__item-title--designer:before {
+		top: -8px;
+		width: 41px;
+		height: 42px;
+		background-image: url(../images/contents/timeline/003-graphic_tool.svg);
+	}
+
+	&__item-title--production:before {
+		width: 38px;
+		height: 26px;
+		background-image: url(../images/contents/timeline/028-measuring_tape.svg);
+	}
+
+	&__item-title--measurements:before {
+		width: 38px;
+		height: 34px;
+		background-image: url(../images/contents/timeline/002-sofa.svg);
+	}
+
+	&__item-text {
+		font-family: 'Open Sans', sans-serif;
+		font-size: 16px;
+		font-weight: 400;
+		line-height: 27px;
+		text-align: left;
+		color: $defaultColor;
+
+
+	}
+}
+
+.gallery{
+	padding: 80px 0 90px;
+	&__buttons{
+		text-align: center;
+		margin-bottom: 40px;
+	}
+	&__btn{
+		cursor:pointer;
+		text-align: center;
+		margin: 0 13px;
+		background-color: transparent;
+		border: 1px solid #8F8D8D;
+		border-radius: 20px;
+		padding: 6px 16px;
+		font-size:14px;
+		font-weight: 600;
+		color:#8F8D8D;
+	}
+
+	.mixitup-control-active{
+		background-color: rgba(#FFEF35, 0.5);
+		font-family: 'Open Sans', sans-serif;
+		font-size: 14px;
+		font-weight: 600;
+		line-height: 28px;
+		text-align: center;
+		color:#363838;
+ 	}
+	&__items{
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		grid-template-rows: repeat(2, 1fr);
+		grid-gap: 30px 35px;
+	}
+	&__item:first-child{
+		grid-column: span 2;
+		grid-row: span 2;
+	}
+	&__item{
+		background-color: black;
+	}
+	&__image{
+		width:100%;
+		object-fit: cover;
+		max-height: 1150px;
+		height: 100%;
+	}
+}
+
+.blog-section{
+	&__title{
+		@extend %title-font;
+		font-size: 36px;
+		line-height: 51px;
+		text-align: center;
+		max-width: 430px;
+		width: 100%;
+		margin: 0 auto;
+		margin-bottom: 29px;
+	}
+	&__items{
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+	}
+	&__item{
+		margin: 0 15px;
+		padding-bottom: 53px;
+		width: 50%;
+	}
+	&__item-image{
+		width: 100%;
+		max-height: 307px;
+		object-fit: cover;
+	}
+	&__item-date{
+		margin: 19px -0px 7px -0px;
+		font-family: 'Open Sans', sans-serif;
+		font-size: 14px;
+		font-weight: 600;
+		line-height: 28px;
+		text-align: left;
+		color: #707070;
+		white-space: nowrap;
+	}
+	&__item-link{
+		cursor: pointer;
+		@extend %title-font;
+		font-size: 24px;
+		line-height: 38px;
+		text-align: left;
+		color: $primaryColor;
+
+	}
+}
+
 
 
 

@@ -7,4 +7,9 @@ $(function () {
         arrows: false,
         autoPlay: true,
     });
+    var mixer = mixitup(".gallery__inner",{
+        load:{
+            filter: ".bedroom"
+        }
+    });
 })
