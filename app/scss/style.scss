@@ -635,13 +635,21 @@
 		text-align: center;
 		color:#363838;
  	}
-	&__items{
+	&__section{
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
 		grid-template-rows: repeat(2, 1fr);
 		grid-gap: 30px 35px;
+		margin-bottom: 26px;
 	}
-	&__item:first-child{
+	&__section--left &__item:first-child{
+		grid-column: span 2;
+		grid-row: span 2;
+	}
+	&__section--right{
+		grid-auto-flow: column;
+	}
+	&__section--right &__item:last-child{
 		grid-column: span 2;
 		grid-row: span 2;
 	}
