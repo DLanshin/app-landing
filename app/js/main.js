@@ -7,6 +7,14 @@ $(function () {
         arrows: false,
         autoPlay: true,
     });
+    $(".companies__items").slick({
+        dots: false,
+        arrows: false,
+        autoPlay: false,
+        infinite: true,
+        slidesToShow: 5,
+        slidesToScroll: 5
+    });
     var mixer = mixitup(".gallery__inner",{
         load:{
             filter: ".bedroom"
