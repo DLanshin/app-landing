@@ -1,8 +1,56 @@
 $primaryColor: #363838;
 $defaultColor: #5A5A5A;
+//---------------------
 
+$breakpoints_desktop: 1280px;
+$breakpoints_laptop: 1024px;
+$breakpoints_tablet: 768px;
+$breakpoints_mobile: 375px;
 
 %title-font{
 	font-family: 'Montserrat', sans-serif;
 	font-weight: 700;
+}
+
+@mixin desktop-u{
+	@media (max-width: $breakpoints_desktop){
+		@content;
+	}
+}
+@mixin laptop-u{
+	@media (max-width: $breakpoints_laptop){
+		@content;
+	}
+}
+@mixin tablet-u{
+	@media (max-width: $breakpoints_tablet){
+		@content;
+	}
+}
+@mixin mobile-u{
+	@media (max-width: $breakpoints_mobile){
+		@content;
+	}
+}
+
+//only
+@mixin desktop{
+	@media (min-width: $breakpoints_desktop){
+		@content;
+	}
+}
+@mixin laptop{
+	@media (max-width: $breakpoints_desktop - .2px) and (min-width: $breakpoints_laptop){
+		@content;
+	}
+}
+@mixin tablet{
+	@media (max-width: $breakpoints_laptop - .2px) and (min-width: $breakpoints_tablet){
+		@content;
+	}
+}
+@mixin mobile{
+	@media (max-width: $breakpoints_tablet - .2px) and (min-width: $breakpoints_mobile){
+		@content;
+	}
 }

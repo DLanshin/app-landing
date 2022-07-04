@@ -7,28 +7,56 @@
 
 	&--right-sidebar {
 		flex-direction: row;
+		@include tablet-u {
+			flex-direction: column-reverse;
+		}
 	}
 
 	&--left-sidebar {
 		flex-direction: row-reverse;
+		@include tablet-u {
+			flex-direction: column;
+		}
 	}
 
 	&--right-sidebar &__sidebar {
 		margin-left: 30px;
+		@include tablet-u{
+			margin-left: 0;
+		}
 	}
 
 	&--left-sidebar &__sidebar {
 		margin-right: 30px;
+		@include tablet-u{
+			margin-right: 0;
+		}
 	}
 
 	&__inner {
-		width: calc(100% - 379px)
+		width: calc(100% - 379px);
+		@include tablet-u{
+			width: 100%	;
+		}
 	}
 
 	&__sidebar {
 		width: 349px;
 		display: flex;
 		flex-direction: column;
+		@include tablet-u{
+			width: 100%;
+			align-items: center;
+			margin-bottom: 30px;
+		}
+	}
+
+	&__sidebar .categories,
+	&__sidebar .recent-posts,
+	&__sidebar .tags{
+		@include tablet-u {
+			display: none;
+		}
 	}
 
 	&__item {
@@ -76,7 +104,10 @@
 		@extend %title-font;
 		margin-bottom: 6px;
 		cursor: pointer;
-
+		@include tablet-u{
+			font-size: 16px;
+			line-height: 24px;
+		}
 	}
 
 	&__item-date {
@@ -87,6 +118,10 @@
 		text-align: left;
 		color: #707070;
 		margin-bottom: 9px;
+		@include tablet-u{
+			font-size: 11px;
+			line-height: 18px;
+		}
 	}
 
 	&__item-text {
@@ -95,6 +130,10 @@
 		font-size: 16px;
 		line-height: 27px;
 		color: $defaultColor;
+		@include tablet-u{
+			font-size: 14px;
+			line-height: 21px;
+		}
 	}
 
 	&__item-quote {
@@ -198,6 +237,9 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		@include tablet-u{
+			padding: 27px 0 27px 0;
+		}
 	}
 
 	&__navigation-button {
@@ -208,6 +250,11 @@
 		text-align: left;
 		color: #707070;
 		position: relative;
+		cursor: pointer;
+		@include tablet-u{
+			font-size: 11px;
+			line-height: 16px;
+		}
 
 		&:after {
 			content: '';
@@ -224,6 +271,7 @@
 	&__navigation-button--prev {
 		margin-left: 33px;
 		text-align: left;
+
 		&:after {
 			left: -33px;
 		}
@@ -232,12 +280,89 @@
 	&__navigation-button--next {
 		margin-right: 33px;
 		text-align: right;
+
 		&:after {
 			transform: rotate(180deg);
 			right: -33px;
 		}
 	}
 
+}
+
+.categories {
+	margin: 22px 0;
+
+	&__title {
+		@extend %title-font;
+		font-style: normal;
+		font-size: 16px;
+		line-height: 23px;
+		color: $primaryColor;
+		margin-bottom: 12px;
+	}
+
+	&__list {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__item {
+		font-family: 'Open Sans', sans-serif;
+		font-style: normal;
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 27px;
+		color: $defaultColor;
+		margin-bottom: 4px;
+	}
+
+	&__item-count {
+		&:before {
+			content: '(';
+		}
+
+		&:after {
+			content: ')';
+		}
+	}
+}
+
+.tags {
+	@extend %title-font;
+	color: $primaryColor;
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 23px;
+	margin-bottom: 50px;
+
+	&-title {
+		@extend %title-font;
+		font-size: 20px;
+		line-height: 31px;
+		text-align: left;
+		margin-bottom: 6px;
+		color: $primaryColor;
+	}
+
+	&__list {
+		display: flex;
+		flex-wrap: wrap;
+		margin: 0 -5px;
+		width: 100%;
+	}
+
+	&__item {
+		font-family: 'Open Sans', sans-serif;
+		font-weight: 600;
+		font-size: 14px;
+		line-height: 28px;
+		text-align: center;
+		color: #8F8D8D;
+		padding: 0 16px;
+		border-radius: 14px;
+		border: 1px solid rgba(69, 70, 71, 0.5);
+		margin: 0 5px 10px 5px;
+	}
 }
 
 .recent-posts {
@@ -279,3 +404,5 @@
 		color: #A1A1A1;
 	}
 }
+
+@import "media";
